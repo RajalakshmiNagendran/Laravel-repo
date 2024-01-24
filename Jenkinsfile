@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Run Composer Install") {
             steps {
-                sh 'composer install'
+                sh 'php /usr/local/bin/composer install'
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
             }
