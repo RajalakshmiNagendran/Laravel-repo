@@ -30,7 +30,6 @@ pipeline {
             steps {
                 sh 'docker compose run --rm composer install'
             }
-        }
-                     
-        
+        }                   
+   }
 }
