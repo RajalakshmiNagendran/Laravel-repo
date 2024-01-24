@@ -26,9 +26,9 @@ pipeline {
                 sh 'docker compose ps'
             }
         }
-        stage("Run Composer Install") {
+        stage("Run Tests") {
             steps {
-                sh 'docker compose run --rm composer install'
+                sh 'docker compose run --rm artisan test'
             }
         }                   
    }
