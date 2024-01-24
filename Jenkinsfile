@@ -9,7 +9,16 @@ pipeline {
                     docker compose version
                 '''
             }
-        }        
+        }
+		stage('Build Container') {
+			steps {
+				echo 'Building Container..'
+				script {
+							def dockerHome = tool 'MyDocker'
+							env.PATH = "${dockerHome}/bin:${env.PATH}"
+				}
+			}
+		}
         stage("Clear all running docker containers") {
             steps {
                 script {
