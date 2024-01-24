@@ -30,13 +30,8 @@ pipeline {
             steps {
                 sh 'php /usr/local/bin/composer install'
                 sh 'cp .env.example .env'
-                sh 'php artisan key:generate'
+                sh 'docker compose run --rm artisan test'
             }
-        }
-        stage("Run Tests") {
-            steps {
-                sh './vendor/bin/phpunit'
-            }
-        }                   
+        }                 
    }
 }
