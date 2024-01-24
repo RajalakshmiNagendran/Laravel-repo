@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Run Composer Install") {
             steps {
-                sh 'php /usr/local/bin/composer install'
+                sh 'docker compose run --rm composer install'
                 sh 'cp .env.example .env'
                 sh 'docker compose run --rm artisan test'
             }
