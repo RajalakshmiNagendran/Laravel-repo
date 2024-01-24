@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Run Composer Install") {
             steps {
-                sh 'composer install'
+                sh 'composer update && composer install'
                 sh 'cp .env.example .env'
                 sh 'docker compose run --rm artisan test'
             }
